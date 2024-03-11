@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>You just purchased a new robot!</h1>
+    <p> Your first task for your new robot is that it will go to the store and buy you as many bottles of water as he can.</p>
+    <p>Keep in mind that water costs money, so you will need to give your robot some money for it to do this.</p>
+    <p>Type in how much you are giving the robot, and click the button to start him on his journey. Always look at the weekly circular to make sure you are giving it enough money to purchase the number of bottles that you want. </p>
+
+    <p>$<span id="price-per-bottle">2.99</span></p>
+    <div class="enter-money"><p>Enter the money given to the robot</p><input id="money-entered"></div>
+    <button>Send to store</button>
+
+    <P id="answer"></P>
+
+    <script>
+        const pricePerBottle = document.getElementById("price-per-bottle").innerHTML
+        
+
+      document.querySelector("button").addEventListener("click", () => {
+        var moneyGiven = document.getElementById("money-entered").value
+        
+
+        
+        if (isNaN (moneyGiven)) {
+            document.getElementById("answer").innerHTML = "This is not money"
+        }
+        else {
+            
+            let bottlesBought = Math.floor(moneyGiven / pricePerBottle);
+            change = moneyGiven % pricePerBottle
+            document.getElementById("answer").innerHTML = "You have purchased " + bottlesBought + " bottles, and get back " + change + " in change"
+
+        }
+        })
+      
+    </script>
+</body>
+</html>
